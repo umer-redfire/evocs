@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import {FC, useEffect, useRef} from 'react'
-import {KTSVG} from '../../../../helpers'
-import {getCSSVariableValue} from '../../../../assets/ts/_utils'
+import { getCSSVariableValue } from 'src/theme/_metronic/assets/ts/_utils/DomHelpers'
+import { KTSVG } from 'src/theme/_metronic/helpers/components/KTSVG'
 import {useThemeMode} from '../../../layout/theme-mode/ThemeModeProvider'
 
 type Props = {

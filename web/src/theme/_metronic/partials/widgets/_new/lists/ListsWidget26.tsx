@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import {Fragment} from 'react'
-import {KTSVG} from '../../../../helpers'
+import { KTSVG } from 'src/theme/_metronic/helpers/components/KTSVG'
+
 
 type Props = {
   className: string
@@ -30,6 +31,7 @@ const ListsWidget26 = ({className}: Props) => (
               className='btn btn-icon btn-sm h-auto btn-color-gray-400 btn-active-color-primary justify-content-end'
             >
               <KTSVG path='media/icons/duotune/arrows/arr095.svg' className='svg-icon-2' />
+
             </button>
           </div>
           {rows.length - 1 > index && <div className='separator separator-dashed my-3' />}

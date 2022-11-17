@@ -3,7 +3,8 @@ import clsx from 'clsx'
 import {Link} from 'react-router-dom'
 import { toAbsoluteUrl } from '../../../helpers/AssetHelpers'
 import { KTSVG } from '../../../helpers/components/KTSVG'
-import { useLayout } from '../../core'
+import { useLayout } from '../../core/_LayoutProvider'
+
 import { Header } from './Header'
 import { Navbar } from './Navbar'
 

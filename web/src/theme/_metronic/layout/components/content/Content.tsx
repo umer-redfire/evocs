@@ -1,9 +1,9 @@
 import {useEffect} from 'react'
 import {useLocation} from 'react-router'
 import clsx from 'clsx'
-import {WithChildren} from '../../../helpers'
 import { useLayout } from '../../core/_LayoutProvider'
 import { DrawerComponent } from '../../../assets/ts/components/_DrawerComponent'
+import { WithChildren } from 'src/theme/_metronic/helpers/react18MigrationHelpers'
 
 const Content = ({children}: WithChildren) => {
   const {config, classes} = useLayout()
