@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from '@redwoodjs/router';
 import { KTSVG } from 'src/theme/_metronic/helpers/components/KTSVG';
 import { Item1 } from '../../content/activity/Item1';
 import { Item2 } from '../../content/activity/Item2';

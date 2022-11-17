@@ -12,10 +12,12 @@ import AppLayout from './App';
 import AuthLayout from './layouts/AuthLayout';
 import { ErrorsLayout } from './layouts/ErrorsLayout';
 import MasterLayout from './layouts/MasterLayout/MasterLayout';
+import ProfileLayout from './layouts/ProfileLayout/ProfileLayout';
 
 const Routes = () => {
   return (
     <Router>
+      <Route path="/profile" page={ProfilePage} name="profile" />
       <Set wrap={AuthLayout}>
         <Route path="/auth/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
         <Route path="/auth/registration" page={RegisterPage} name="register" />
@@ -27,6 +29,14 @@ const Routes = () => {
       </Set>
       <Set wrap={MasterLayout}>
         <Route path="/dashboard" page={DashboardPage} name="dashboard" />
+        <Route path="/builder" page={BuilderPage} name="builder" />
+        <Set wrap={ProfileLayout}>
+          <Route path="/crafted/pages/profile/overview" page={ProfilePage} name="profile" />
+          <Route path="/crafted/pages/profile/projects" page={ProfileProjectsPage} name="profileProjects" />
+          <Route path="/crafted/pages/profile/campaigns" page={ProfileCompaignsPage} name="profileCompaigns" />
+          <Route path="/crafted/pages/profile/documents" page={ProfileDocumentsPage} name="profileDocuments" />
+          <Route path="/crafted/pages/profile/connections" page={ProfileConnectionsPage} name="profileConnections" />
+        </Set>
       </Set>
       {/* <Route path="/dashboard" page={DashboardPage} name="dashboard" /> */}
       <Set wrap={CustomerTenantsLayout} private roles={[RoleList.EvocsInternal, RoleList.Admin]} unauthenticated="home">
