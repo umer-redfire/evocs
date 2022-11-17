@@ -17,6 +17,7 @@ const btnIconClass = 'svg-icon-1';
 const Navbar = () => {
   const { config } = useLayout();
   const [userAvatarClass, setUserAvatarClass] = useState(false);
+  const [];
   return (
     <div className="app-navbar flex-shrink-0">
       <div className={clsx('app-navbar-item align-items-stretch', itemClass)}>
