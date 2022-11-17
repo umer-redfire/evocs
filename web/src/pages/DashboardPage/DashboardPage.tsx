@@ -1,6 +1,7 @@
 
 import { FC } from 'react';
 import { useIntl } from 'react-intl';
+
 import { toAbsoluteUrl } from 'src/theme/_metronic/helpers/AssetHelpers';
 import { PageTitle } from 'src/theme/_metronic/layout/core/PageData';
 import { ListsWidget2 } from 'src/theme/_metronic/partials/widgets/lists/ListsWidget2';
@@ -113,6 +114,8 @@ const DashboardPage: FC = () => (
 
 const DashboardWrapper: FC = () => {
   const intl = useIntl();
+
+
   return (
     <>
       <PageTitle breadcrumbs={[]}>
