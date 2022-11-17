@@ -5,7 +5,7 @@ import { Settings } from './components/settings/Settings';
 import { AccountHeader } from './AccountHeader';
 import { PageLink, PageTitle } from '../../../_metronic/layout/core/PageData';
 
-const accountBreadCrumbs: Array<PageLink> = [
+export const accountBreadCrumbs: Array<PageLink> = [
   {
     title: 'Account',
     path: '/crafted/account/overview',
