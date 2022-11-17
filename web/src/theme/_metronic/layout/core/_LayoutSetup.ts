@@ -1,10 +1,10 @@
-import { DefaultConfig } from './_LayoutConfig';
 import {
   ILayout,
   ILayoutCSSClasses,
-  ILayoutCSSVariables,
   ILayoutHTMLAttributes,
+  ILayoutCSSVariables,
 } from './_Models';
+import { DefaultConfig } from './_LayoutConfig';
 
 const LAYOUT_CONFIG_KEY =
   process.env.REACT_APP_BASE_LAYOUT_CONFIG_KEY || 'LayoutConfig';
@@ -220,9 +220,9 @@ class LayoutSetup {
     setLayoutIntoLocalStorage(config);
   }
 
-  public static bootstrap = (() => {
-    LayoutSetup.updatePartialConfig(LayoutSetup.config);
-  })();
+  // public static bootstrap = (() => {
+  //   LayoutSetup.updatePartialConfig(LayoutSetup.config);
+  // })();
 }
 
 export {
