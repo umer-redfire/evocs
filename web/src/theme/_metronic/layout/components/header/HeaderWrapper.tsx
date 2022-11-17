@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import clsx from 'clsx';
-import { Link } from 'react-router-dom';
+import { Link } from '@redwoodjs/router';
 import { toAbsoluteUrl } from 'src/theme/_metronic/helpers/AssetHelpers';
 import { KTSVG } from 'src/theme/_metronic/helpers/components/KTSVG';
 import { useLayout } from '../../core/_LayoutProvider';
