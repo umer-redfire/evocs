@@ -1,5 +1,4 @@
-import { Link, routes } from '@redwoodjs/router';
-import { MetaTags } from '@redwoodjs/web';
+
 import { FC } from 'react';
 import { useIntl } from 'react-intl';
 import { toAbsoluteUrl } from 'src/theme/_metronic/helpers/AssetHelpers';
