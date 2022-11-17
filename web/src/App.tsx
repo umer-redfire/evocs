@@ -17,6 +17,7 @@ import { Suspense } from 'react';
 import { I18nProvider } from './theme/_metronic/i18n/i18nProvider';
 import { LayoutSplashScreen } from './theme/_metronic/layout/core/MetronicSplashScreen';
 import { LayoutProvider } from './theme/_metronic/layout/core/_LayoutProvider';
+import { BrowserRouter } from 'react-router-dom';
 
 export enum RoleList {
   User = 'user',
@@ -46,15 +47,17 @@ const auth0 = new Auth0Client({
 });
 
 const App = () => (
-  <Suspense fallback={<LayoutSplashScreen />}>
-    <I18nProvider>
-      <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
-        <RedwoodApolloProvider>
-          <Routes />
-        </RedwoodApolloProvider>
-      </RedwoodProvider>
-    </I18nProvider>
-  </Suspense>
+  <BrowserRouter>
+    <Suspense fallback={<LayoutSplashScreen />}>
+      <I18nProvider>
+        <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
+          <RedwoodApolloProvider>
+            <Routes />
+          </RedwoodApolloProvider>
+        </RedwoodProvider>
+      </I18nProvider>
+    </Suspense>
+  </BrowserRouter>
 );
 
 export default App;

@@ -12,6 +12,9 @@
       "not IE_Mob 11"
     ]
   },
+  "scripts": {
+    "lint": "prettier --check ."
+  },
   "dependencies": {
     "@auth0/auth0-spa-js": "^1.22.2",
     "@formatjs/intl-pluralrules": "4.3.3",

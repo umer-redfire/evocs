@@ -1,4 +1,4 @@
-import {PageLink} from '../../../_metronic/layout/core'
+import { PageLink } from 'src/theme/_metronic/layout/core/PageData';
 
 export const profileSubmenu: Array<PageLink> = [
   {
@@ -34,4 +34,4 @@ export const profileSubmenu: Array<PageLink> = [
     isActive: false,
     isSeparator: true,
   },
-]
+];
