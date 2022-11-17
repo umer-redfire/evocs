@@ -35,14 +35,15 @@ const MasterLayout = ({ children }: MasterLayoutProps) => {
                 className="app-wrapper flex-column flex-row-fluid"
                 id="kt_app_wrapper"
               >
-                <Sidebar />
+                {/* <Sidebar /> */}
                 <div
                   className="app-main flex-column flex-row-fluid"
                   id="kt_app_main"
                 >
                   <div className="d-flex flex-column flex-column-fluid">
                     {/* <ToolbarWrapper /> */}
-                    {/* <Content>{children}</Content> */}
+                    {/* <Content></Content> */}
+                    {children}
                   </div>
                   {/* <FooterWrapper /> */}
                 </div>
@@ -50,21 +51,17 @@ const MasterLayout = ({ children }: MasterLayoutProps) => {
             </div>
           </div>
 
-          {/* begin:: Drawers */}
-          {/* <ActivityDrawer /> */}
-          {/* <RightToolbar /> */}
-          {/* <DrawerMessenger /> */}
-          {/* end:: Drawers */}
+          <ActivityDrawer />
+          <RightToolbar />
+          <DrawerMessenger />
 
           {/* begin:: Modals */}
-          {/* <InviteUsers /> */}
-          {/* <UpgradePlan /> */}
-          {/* end:: Modals */}
-          {/* <ScrollTop /> */}
+          <InviteUsers />
+          <UpgradePlan />
+          <ScrollTop />
         </ThemeModeProvider>
       </PageDataProvider>
     </>
   );
 };
-
 export default MasterLayout;
