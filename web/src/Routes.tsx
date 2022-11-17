@@ -12,10 +12,12 @@ import AppLayout from './App';
 import AuthLayout from './layouts/AuthLayout';
 import { ErrorsLayout } from './layouts/ErrorsLayout';
 import MasterLayout from './layouts/MasterLayout/MasterLayout';
+import AccountLayout from './layouts/AccountLayout/AccountLayout';
 
 const Routes = () => {
   return (
     <Router>
+      <Route path="/drawer-chat" page={DrawerChatPage} name="drawerChat" />
       <Set wrap={AuthLayout}>
         <Route path="/auth/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
         <Route path="/auth/registration" page={RegisterPage} name="register" />
@@ -26,8 +28,25 @@ const Routes = () => {
         <Route path="/error/404" page={Error404Page} name="404" />
       </Set>
       <Set wrap={MasterLayout}>
+        <Route path="/crafted/pages/wizards/horizontal" page={WizardsHorizontalPage} name="wizardsHorizontal" />
+        <Route path="/crafted/pages/wizards/vertical" page={WizardsVerticalPage} name="wizardsVertical" />
         <Route path="/dashboard" page={DashboardPage} name="dashboard" />
+        <Route path="/menu-test" page={MenuTestPage} name="menuTest" />
+        <Route path="/crafted/widgets/charts" page={WidgetschartsPage} name="widgetscharts" />
+        <Route path="/crafted/widgets/lists" page={WidgetslistsPage} name="widgetscharts" />
+        <Route path="/crafted/widgets/feeds" page={WidgetsfeedsPage} name="widgetsfeeds" />
+        <Route path="/crafted/widgets/mixed" page={WidgetsmixedPage} name="widgetsmixed" />
+        <Route path="/crafted/widgets/tables" page={WidgettablesPage} name="widgettables" />
+        <Route path="/crafted/widgets/statistics" page={WidgetstatisticsPage} name="widgetstatistics" />
+        <Set wrap={AccountLayout}>
+          <Route path="/crafted/account/overview" page={AccountoverviewPage} name="accountoverview" />
+          <Route path="/crafted/account/settings" page={AccountsettingsPage} name="accountsettings" />
+        </Set>
+        <Route path="/apps/chat/private-chat" page={PrivateChatPage} name="privateChat" />
+        <Route path="/apps/chat/group-chat" page={GroupChatPage} name="groupChat" />
+        <Route path="/apps/user-management/users" page={UsersPage} name="users" />
       </Set>
+
       {/* <Route path="/dashboard" page={DashboardPage} name="dashboard" /> */}
       <Set wrap={CustomerTenantsLayout} private roles={[RoleList.EvocsInternal, RoleList.Admin]} unauthenticated="home">
         <Route path="/customer-tenants/new" page={CustomerTenantNewCustomerTenantPage} name="newCustomerTenant" />

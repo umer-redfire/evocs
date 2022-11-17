@@ -35,7 +35,7 @@ const MasterLayout = ({ children }: MasterLayoutProps) => {
                 className="app-wrapper flex-column flex-row-fluid"
                 id="kt_app_wrapper"
               >
-                {/* <Sidebar /> */}
+                <Sidebar />
                 <div
                   className="app-main flex-column flex-row-fluid"
                   id="kt_app_main"
