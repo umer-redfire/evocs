@@ -1,0 +1,118 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "rhel-openssl-1.0.x"]
+  previewFeatures = ["interactiveTransactions"]
+}
+
+
+// Define your own enums here
+enum AccountStatus {
+  PENDING
+  ACTIVE
+  DISABLED
+}
+
+enum JobStatus {
+  PENDING
+  ACTIVE
+  DONE
+  FAILED
+}
+
+// Define your own datamodels here and run `yarn redwood prisma migrate dev`
+// to create migrations for them and apply to your dev DB.
+model Product {
+  id Int @id @default(autoincrement())
+  title String
+  description String
+  enabledCustomers CustomerProduct[]
+  jobs Job[]
+  config Json
+  published Boolean @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Customer {
+  users User[]
+  enabledProducts CustomerProduct[]
+  tenants CustomerTenant[]
+
+  id Int @id @default(autoincrement())
+  auth0ID String? @unique
+  name String @unique
+  displayName String?
+  status AccountStatus
+  vaultKey String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model CustomerProduct {
+  id Int @id @default(autoincrement())
+  product Product @relation(fields: [productID], references: [id])
+  productID Int
+  customer Customer @relation(fields: [customerID], references: [id])
+  customerID Int
+  config Json
+  tenants CustomerProductEnabledTenant[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  auth0ID String @unique
+  email String @unique
+  customer Customer @relation(fields: [customerID], references: [id])
+  customerID Int
+  jobs Job[]
+  status AccountStatus
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([customerID])
+}
+
+model Job {
+  id Int @id @default(autoincrement())
+  status JobStatus
+  user User @relation(fields: [initiatingUserID], references: [id])
+  initiatingUserID Int
+  product Product @relation(fields: [productID], references: [id])
+  productID Int
+  resultBlob Json?
+  resultURL String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status, initiatingUserID])
+}
+
+model CustomerTenant {
+  customer Customer @relation(fields: [customerID], references: [id])
+  customerProductEnabledOn CustomerProductEnabledTenant[]
+
+  id Int @id @default(autoincrement())
+  customerID Int
+  url String
+  vaultKey String?
+
+  @@index([customerID])
+}
+
+model CustomerProductEnabledTenant {
+  customerProduct CustomerProduct @relation(fields: [customerProductID], references: [id])
+  customerTenant CustomerTenant @relation(fields: [customerTenantID], references: [id])
+
+  id Int @id @default(autoincrement())
+  customerProductID Int
+  customerTenantID Int
+
+  @@index([customerProductID, customerTenantID])
+}
