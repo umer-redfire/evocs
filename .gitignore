@@ -3,6 +3,7 @@
 .env
 .netlify
 .redwood
+.yarn
 dev.db*
 dist
 dist-babel
@@ -19,3 +20,4 @@ api/src/lib/generateGraphiQLHeader.*
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+.git
