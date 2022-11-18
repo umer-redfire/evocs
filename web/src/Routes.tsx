@@ -19,7 +19,7 @@ const Routes = () => {
   return (
     <Router>
       <Route path="/profile" page={ProfilePage} name="profile" />
-      {/* <Route path="/drawer-chat" page={DrawerChatPage} name="drawerChat" /> */}
+
       <Set wrap={AuthLayout}>
         <Route path="/auth/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
         <Route path="/auth/registration" page={RegisterPage} name="register" />
@@ -55,6 +55,7 @@ const Routes = () => {
         <Route path="/apps/chat/private-chat" page={PrivateChatPage} name="privateChat" />
         <Route path="/apps/chat/group-chat" page={GroupChatPage} name="groupChat" />
         <Route path="/apps/user-management/users" page={UsersPage} name="users" />
+        <Route path="/apps/chat/drawer-chat" page={DrawerChatPage} name="drawerChat" />
       </Set>
 
       {/* <Route path="/dashboard" page={DashboardPage} name="dashboard" /> */}

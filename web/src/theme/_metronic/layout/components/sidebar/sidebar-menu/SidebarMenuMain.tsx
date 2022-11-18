@@ -1,14 +1,15 @@
 /* eslint-disable react/jsx-no-target-blank */
-import React, { useState } from 'react';
+import React from 'react';
 import { useIntl } from 'react-intl';
 // import {KTSVG} from '../../../../helpers'
+import { Link } from '@redwoodjs/router';
 import { SidebarMenuItemWithSub } from './SidebarMenuItemWithSub';
 import { SidebarMenuItem } from './SidebarMenuItem';
 import { KTSVG } from '../../../../helpers/components/KTSVG';
+import Accordion from 'react-bootstrap/Accordion';
 
 const SidebarMenuMain = () => {
   const intl = useIntl();
-  const [menu, setMenu] = useState(false);
 
   return (
     <>
@@ -31,9 +32,8 @@ const SidebarMenuMain = () => {
           </span>
         </div>
       </div>
-      <SidebarMenuItemWithSub
-        menu={menu}
-        setMenu={setMenu}
+
+      {/* <SidebarMenuItemWithSub
         to="/crafted/pages"
         title="Pages"
         fontIcon="bi-archive"
@@ -43,8 +43,6 @@ const SidebarMenuMain = () => {
           to="/crafted/pages/profile"
           title="Profile"
           hasBullet={true}
-          menu={menu}
-          setMenu={setMenu}
         >
           <SidebarMenuItem
             to="/crafted/pages/profile/overview"
@@ -77,8 +75,6 @@ const SidebarMenuMain = () => {
           to="/crafted/pages/wizards"
           title="Wizards"
           hasBullet={true}
-          menu={menu}
-          setMenu={setMenu}
         >
           <SidebarMenuItem
             to="/crafted/pages/wizards/horizontal"
@@ -91,10 +87,117 @@ const SidebarMenuMain = () => {
             hasBullet={true}
           />
         </SidebarMenuItemWithSub>
-      </SidebarMenuItemWithSub>
-      <SidebarMenuItemWithSub
-        menu={menu}
-        setMenu={setMenu}
+      </SidebarMenuItemWithSub> */}
+
+      <Accordion>
+        <Accordion.Item eventKey="0">
+          <Accordion.Header>
+            <KTSVG
+              path="/media/icons/duotune/general/gen022.svg"
+              className="svg-icon-2"
+            />{' '}
+            <span style={{ paddingLeft: '6px' }}>Pages</span>
+          </Accordion.Header>
+          <Accordion.Body>
+            <Accordion>
+              <Accordion.Item eventKey="1">
+                <Accordion.Header>
+                  <span className="bullet bullet-dot"></span>{' '}
+                  <span style={{ paddingLeft: '6px' }}>Profile</span>
+                </Accordion.Header>
+                <Accordion.Body>
+                  <ul>
+                    <li>
+                      <Link to="/crafted/pages/profile/overview">
+                        <span className="bullet bullet-dot"></span>{' '}
+                        <span style={{ paddingLeft: '6px' }}>Overview</span>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/crafted/pages/profile/projects">
+                        <span className="bullet bullet-dot"></span>{' '}
+                        <span style={{ paddingLeft: '6px' }}>Projects</span>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/crafted/pages/profile/campaigns">
+                        <span className="bullet bullet-dot"></span>{' '}
+                        <span style={{ paddingLeft: '6px' }}>Campaigns</span>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/crafted/pages/profile/documents">
+                        <span className="bullet bullet-dot"></span>{' '}
+                        <span style={{ paddingLeft: '6px' }}>Documents</span>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/crafted/pages/profile/connections">
+                        <span className="bullet bullet-dot"></span>{' '}
+                        <span style={{ paddingLeft: '6px' }}>Connections</span>
+                      </Link>
+                    </li>
+                  </ul>
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="2">
+                <Accordion.Header>
+                  <span className="bullet bullet-dot"></span>{' '}
+                  <span style={{ paddingLeft: '6px' }}>Wizards</span>
+                </Accordion.Header>
+                <Accordion.Body>
+                  <ul>
+                    <li>
+                      <Link to="/crafted/pages/wizards/horizontal">
+                        <span className="bullet bullet-dot"></span>{' '}
+                        <span style={{ paddingLeft: '6px' }}>Horizontal</span>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/crafted/pages/wizards/vertical">
+                        <span className="bullet bullet-dot"></span>{' '}
+                        <span style={{ paddingLeft: '6px' }}>Vertical</span>
+                      </Link>
+                    </li>
+                  </ul>
+                </Accordion.Body>
+              </Accordion.Item>
+            </Accordion>
+          </Accordion.Body>
+        </Accordion.Item>
+      </Accordion>
+
+      <Accordion>
+        <Accordion.Item eventKey="3">
+          <Accordion.Header>
+            <KTSVG
+              path="/media/icons/duotune/communication/com006.svg"
+              className="svg-icon-2"
+            />{' '}
+            <span style={{ paddingLeft: '6px' }}> Accounts</span>
+          </Accordion.Header>
+          <Accordion.Body>
+            <ul>
+              <li>
+                <Link to="/crafted/account/overview">
+                  {' '}
+                  <span className="bullet bullet-dot"></span>{' '}
+                  <span style={{ paddingLeft: '6px' }}>Overview</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/crafted/account/settings">
+                  {' '}
+                  <span className="bullet bullet-dot"></span>{' '}
+                  <span style={{ paddingLeft: '6px' }}>Settings</span>
+                </Link>
+              </li>
+            </ul>
+          </Accordion.Body>
+        </Accordion.Item>
+      </Accordion>
+
+      {/* <SidebarMenuItemWithSub
         to="/crafted/accounts"
         title="Accounts"
         icon="/media/icons/duotune/communication/com006.svg"
@@ -110,10 +213,38 @@ const SidebarMenuMain = () => {
           title="Settings"
           hasBullet={true}
         />
-      </SidebarMenuItemWithSub>
-      <SidebarMenuItemWithSub
-        menu={menu}
-        setMenu={setMenu}
+      </SidebarMenuItemWithSub> */}
+
+      <Accordion>
+        <Accordion.Item eventKey="4">
+          <Accordion.Header>
+            <KTSVG
+              path="/media/icons/duotune/general/gen040.svg"
+              className="svg-icon-2"
+            />{' '}
+            <span style={{ paddingLeft: '6px' }}> Errors</span>
+          </Accordion.Header>
+          <Accordion.Body>
+            <ul>
+              <li>
+                <Link to="/error/404">
+                  {' '}
+                  <span className="bullet bullet-dot"></span>{' '}
+                  <span style={{ paddingLeft: '6px' }}>Error 404</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/error/500">
+                  {' '}
+                  <span className="bullet bullet-dot"></span>{' '}
+                  <span style={{ paddingLeft: '6px' }}>Error 500</span>
+                </Link>
+              </li>
+            </ul>
+          </Accordion.Body>
+        </Accordion.Item>
+      </Accordion>
+      {/* <SidebarMenuItemWithSub
         to="/error"
         title="Errors"
         fontIcon="bi-sticky"
@@ -121,11 +252,66 @@ const SidebarMenuMain = () => {
       >
         <SidebarMenuItem to="/error/404" title="Error 404" hasBullet={true} />
         <SidebarMenuItem to="/error/500" title="Error 500" hasBullet={true} />
-      </SidebarMenuItemWithSub>
-      <SidebarMenuItemWithSub
+      </SidebarMenuItemWithSub> */}
+      <Accordion>
+        <Accordion.Item eventKey="5">
+          <Accordion.Header>
+            <KTSVG
+              path="/media/icons/duotune/general/gen025.svg"
+              className="svg-icon-2"
+            />{' '}
+            <span style={{ paddingLeft: '6px' }}> Widgets</span>
+          </Accordion.Header>
+          <Accordion.Body>
+            <ul>
+              <li>
+                <Link to="/crafted/widgets/lists">
+                  {' '}
+                  <span className="bullet bullet-dot"></span>{' '}
+                  <span style={{ paddingLeft: '6px' }}>Lists</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/crafted/widgets/statistics">
+                  {' '}
+                  <span className="bullet bullet-dot"></span>{' '}
+                  <span style={{ paddingLeft: '6px' }}>Statistics</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/crafted/widgets/charts">
+                  {' '}
+                  <span className="bullet bullet-dot"></span>{' '}
+                  <span style={{ paddingLeft: '6px' }}>Charts</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/crafted/widgets/mixed">
+                  {' '}
+                  <span className="bullet bullet-dot"></span>{' '}
+                  <span style={{ paddingLeft: '6px' }}>Mixed</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/crafted/widgets/tables">
+                  {' '}
+                  <span className="bullet bullet-dot"></span>{' '}
+                  <span style={{ paddingLeft: '6px' }}>Tables</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/crafted/widgets/feeds">
+                  {' '}
+                  <span className="bullet bullet-dot"></span>{' '}
+                  <span style={{ paddingLeft: '6px' }}>Feeds</span>
+                </Link>
+              </li>
+            </ul>
+          </Accordion.Body>
+        </Accordion.Item>
+      </Accordion>
+      {/* <SidebarMenuItemWithSub
         to="/crafted/widgets"
-        menu={menu}
-        setMenu={setMenu}
         title="Widgets"
         icon="/media/icons/duotune/general/gen025.svg"
         fontIcon="bi-layers"
@@ -160,7 +346,7 @@ const SidebarMenuMain = () => {
           title="Feeds"
           hasBullet={true}
         />
-      </SidebarMenuItemWithSub>
+      </SidebarMenuItemWithSub> */}
       <div className="menu-item">
         <div className="menu-content pt-8 pb-2">
           <span className="menu-section text-muted text-uppercase fs-8 ls-1">
@@ -168,9 +354,43 @@ const SidebarMenuMain = () => {
           </span>
         </div>
       </div>
-      <SidebarMenuItemWithSub
-        menu={menu}
-        setMenu={setMenu}
+      <Accordion>
+        <Accordion.Item eventKey="4">
+          <Accordion.Header>
+            <KTSVG
+              path="/media/icons/duotune/communication/com012.svg"
+              className="svg-icon-2"
+            />{' '}
+            <span style={{ paddingLeft: '6px' }}> Chat</span>
+          </Accordion.Header>
+          <Accordion.Body>
+            <ul>
+              <li>
+                <Link to="/apps/chat/private-chat">
+                  {' '}
+                  <span className="bullet bullet-dot"></span>{' '}
+                  <span style={{ paddingLeft: '6px' }}>Private Chat</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/apps/chat/group-chat">
+                  {' '}
+                  <span className="bullet bullet-dot"></span>{' '}
+                  <span style={{ paddingLeft: '6px' }}>Group Chat</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/apps/chat/drawer-chat">
+                  {' '}
+                  <span className="bullet bullet-dot"></span>{' '}
+                  <span style={{ paddingLeft: '6px' }}>Drawer Chat</span>
+                </Link>
+              </li>
+            </ul>
+          </Accordion.Body>
+        </Accordion.Item>
+      </Accordion>
+      {/* <SidebarMenuItemWithSub
         to="/apps/chat"
         title="Chat"
         fontIcon="bi-chat-left"
@@ -191,7 +411,7 @@ const SidebarMenuMain = () => {
           title="Drawer Chart"
           hasBullet={true}
         />
-      </SidebarMenuItemWithSub>
+      </SidebarMenuItemWithSub> */}
       <SidebarMenuItem
         to="/apps/user-management/users"
         icon="/media/icons/duotune/general/gen051.svg"

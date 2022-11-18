@@ -13,8 +13,6 @@ type Props = {
   icon?: string;
   fontIcon?: string;
   hasBullet?: boolean;
-  menu: boolean;
-  setMenu: any;
 };
 
 const SidebarMenuItemWithSub: React.FC<Props & WithChildren> = ({
@@ -24,8 +22,6 @@ const SidebarMenuItemWithSub: React.FC<Props & WithChildren> = ({
   icon,
   fontIcon,
   hasBullet,
-  menu,
-  setMenu,
 }) => {
   const { pathname } = useLocation();
   const isActive = checkIsActive(pathname, to);
@@ -34,8 +30,7 @@ const SidebarMenuItemWithSub: React.FC<Props & WithChildren> = ({
 
   return (
     <div
-      className={clsx('menu-item', { 'here show': menu }, 'menu-accordion')}
-      onClick={() => setMenu(!menu)}
+      className={clsx('menu-item', { 'here show': isActive }, 'menu-accordion')}
       data-kt-menu-trigger="click"
     >
       <span className="menu-link">

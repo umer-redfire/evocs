@@ -8,6 +8,7 @@ import Routes from 'src/Routes';
 
 import './scaffold.css';
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../src/theme/_metronic/assets/sass/style.scss';
 import '../src/theme/_metronic/assets/sass/plugins.scss';
 import '../src/theme/_metronic/assets/sass/style.react.scss';
@@ -30,11 +31,13 @@ const App = () => (
   <BrowserRouter>
     <Suspense fallback={<LayoutSplashScreen />}>
       <I18nProvider>
-        <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
-          <RedwoodApolloProvider>
-            <Routes />
-          </RedwoodApolloProvider>
-        </RedwoodProvider>
+        <LayoutProvider>
+          <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
+            <RedwoodApolloProvider>
+              <Routes />
+            </RedwoodApolloProvider>
+          </RedwoodProvider>
+        </LayoutProvider>
       </I18nProvider>
     </Suspense>
   </BrowserRouter>

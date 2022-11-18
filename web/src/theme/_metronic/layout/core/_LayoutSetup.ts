@@ -220,9 +220,9 @@ class LayoutSetup {
     setLayoutIntoLocalStorage(config);
   }
 
-  // public static bootstrap = (() => {
-  //   LayoutSetup.updatePartialConfig(LayoutSetup.config);
-  // })();
+  public static bootstrap = () => {
+    LayoutSetup.updatePartialConfig(LayoutSetup.config);
+  };
 }
 
 export {
